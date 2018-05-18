@@ -2,11 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LocationDetails from './location-details';
 
-App.propTypes = {
-  name: PropTypes.string,
-};
-
-
 const App = props => (
   <LocationDetails
     city={props.location.city}
@@ -14,9 +9,13 @@ const App = props => (
   />
 );
 
+App.propTypes = {
+  name: PropTypes.string,
+};
+
 App.defaultProps = {
   name: 'World',
-);
+};
 
 App.propTypes = {
   location: PropTypes.shape({
@@ -26,4 +25,3 @@ App.propTypes = {
 };
 
 export default App;
-
