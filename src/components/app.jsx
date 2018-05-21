@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LocationDetails from './location-details';
+import ForecastSummaries from './forecast-summaries';
 
 const App = props => (
   <LocationDetails
     city={props.location.city}
     country={props.location.country}
   />
+    <ForecastSummaries />
+  </div >
 );
 
 App.propTypes = {
@@ -23,5 +26,6 @@ App.propTypes = {
     country: PropTypes.string,
   }).isRequired,
 };
+
 
 export default App;
