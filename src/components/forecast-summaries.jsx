@@ -1,13 +1,31 @@
 import React from 'react';
-import ForecastSummary from './forecast-summary';
 
-const ForecastSummaries = props => <h1 className="forecast-summaries">{props.date}, {props.description}, {props.icon}, {props.temperature}</h1>;    
-     props.Forecast.map(Forecast => ( 
-     ForecastSummary
-         key= forecast.date.Proptypes.string.isRequired
-         date: forecast.date.PropTypes.string.isRequired,
-         description: forecast.description.PropTypes.string.isRequired,
-         icon: forecast.icon.PropTypes.string.isRequired,
-         temperature: forecast.temperature.PropTypes.string.isRequired,
+import ForecastSummary from './forecast-summary';
+import '../styles/forecast-summaries.scss';
+
+const ForecastSummaries = props => (
+  <div className="forecast-summaries">
+    {
+      props.forecasts.map(forecast => (
+        <ForecastSummary
+          date={forecast.date}
+          description={forecast.description}
+          icon={forecast.icon}
+          temperature={forecast.temperature.max}
+        />
+      ))
+    }
+  </div>
+);
+
+const ForecastSummaries = props => <h1 className="forecast-summaries">{props.date}, {props.description}, {props.icon}, {props.temperature}</h1>;
+
+ForecastSummary.propTypes = {
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  icon: propTypes.number.isRequired,
+  temperature: PropTypes.number.isRequired,
+};
 
 export default ForecastSummaries;
+
