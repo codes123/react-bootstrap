@@ -1,6 +1,26 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ForecastSummary from '../../src/components/forecast-summaries';
+import ForecastSummary from '../../src/components/forecast-summary';
+import ForecastSummaries from '../../src/components/forecast-summaries';
+
+const forecasts = [
+  {
+    date: 123,
+    description: 'date1',
+    icon: 'icon1',
+    temperature: {
+      max: 999,
+    },
+  },
+  {
+    date: 456,
+    description: 'date2',
+    icon: 'icon2',
+    temperature: {
+      max: 777,
+    },
+  },
+];
 
 it('renders the date', () => {
   const wrapper = shallow((
@@ -55,8 +75,8 @@ it('renders the icon', () => {
 });
 
 it('passes the correct values from each forecast into each ForecastSummary', () => {
-  const wrapper = Enzyme.shallow((
-    <ForecastSummaries 
+  const wrapper = shallow((
+    <ForecastSummaries
       forecasts={forecasts}
     />
   ));

@@ -8,6 +8,7 @@ const ForecastSummaries = props => (
     {
       props.forecasts.map(forecast => (
         <ForecastSummary
+          key={forecast.date}
           date={forecast.date}
           description={forecast.description}
           icon={forecast.icon}
@@ -18,14 +19,6 @@ const ForecastSummaries = props => (
   </div>
 );
 
-const ForecastSummaries = props => <h1 className="forecast-summaries">{props.date}, {props.description}, {props.icon}, {props.temperature}</h1>;
-
-ForecastSummary.propTypes = {
-  date: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  icon: propTypes.number.isRequired,
-  temperature: PropTypes.number.isRequired,
-};
 
 export default ForecastSummaries;
 

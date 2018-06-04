@@ -6,18 +6,23 @@ import ForecastSummaries from './forecast-summaries';
 
 import '../styles/app.scss';
 
+
 const App = props => (
   <div className="forecast">
     <LocationDetails
       city={props.location.city}
       country={props.location.country}
     />
-    <ForecastSummaries />
+    <ForecastSummaries
+    forecasts={props.forecasts}
+    />
   </div>
 );
 
 App.propTypes = {
-  location: PropTypes.string,
+  location: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  forecasts: PropTypes.array.isRequired,
 };
 
 App.defaultProps = {
