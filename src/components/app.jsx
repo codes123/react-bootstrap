@@ -5,24 +5,26 @@ import LocationDetails from './location-details';
 import ForecastSummaries from './forecast-summaries';
 
 import '../styles/app.scss';
-
+import ForecastDetails from './Forecast-details';
 
 const App = props => (
-  <div className="forecast">
+  <div>
     <LocationDetails
       city={props.location.city}
       country={props.location.country}
     />
-    <ForecastSummaries
-    forecasts={props.forecasts}
-    />
+    <ForecastSummaries forecasts={props.forecasts} />
+    <ForecastDetails forecast={props.forecasts[0]} />
   </div>
+
 );
+
 
 App.propTypes = {
   location: PropTypes.string.isRequired,
   country: PropTypes.string.isRequired,
-  forecasts: PropTypes.array.isRequired,
+  forecasts: PropTypes.arrayOf.isRequired,
+  forecast: PropTypes.string.isRequired,
 };
 
 App.defaultProps = {
